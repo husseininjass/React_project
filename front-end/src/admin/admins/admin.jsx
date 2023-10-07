@@ -47,7 +47,7 @@ function Admins() {
       <Admin />
         
       <div className="content">
-            <Button onClick={Show}>Add Users</Button>
+            <Button className="add" onClick={Show}>Add Admins</Button>
             <form className="admins" id="admins" onSubmit={addHandler}>
                 <label>Fname</label>
                 <input type="text" name="Fname" onChange={inputHandler}/>
@@ -77,6 +77,7 @@ function Admins() {
                                         <th>Lname</th>
                                         <th>email</th>
                                         <th>password</th>
+                                        <th>action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
