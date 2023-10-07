@@ -1,0 +1,14 @@
+
+
+.admins{
+    display: none;
+}
+.show{
+    display: block;
+}
+input{
+    display: block;
+}
+.edit{
+    transform: translateX(30%);
+}
