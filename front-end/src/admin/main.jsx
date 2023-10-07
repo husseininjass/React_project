@@ -26,8 +26,8 @@ function Admin() {
             <Link to="/admin/users" className="w3-bar-item w3-button">
             Users
             </Link>
-            <Link to="/try" className="w3-bar-item w3-button">
-            Link 3
+            <Link to="/admin/category" className="w3-bar-item w3-button">
+            Category
             </Link>
         </div>
 

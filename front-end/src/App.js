@@ -9,6 +9,7 @@ import EditAdmin from './admin/admins/editadmin';
 import DeleteAdmin from './admin/admins/AdminDelete';
 import EditUser from './admin/users/editUser';
 import DeleteUser from './admin/users/deleteUser';
+import AdminCategory from './admin/category/category';
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +21,12 @@ function App() {
           <Route path='/adminlogin' element={<AdminLogin />} />
           <Route path='/admin/edit/:id' element={<EditAdmin/>} />
           <Route path='/admin/delete/:id' element={<DeleteAdmin/>} />
+          <Route path='/admin/category' element={<AdminCategory />} />
+
+
+
+
+
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
       </Routes>
