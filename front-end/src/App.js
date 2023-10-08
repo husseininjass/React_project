@@ -3,19 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AdminUsers from './admin/users/users';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
-import UserProfile from './components/Profile/UserProfile';
-import AdminUsers from './admin/users/users';
 import AdminLogin from './admin/register/adminLogin';
-import Header from './components/Header/Header';
-import Footer from './components/Header/Footer';
-import HomePage from './components/homepage/HomePage';
-import Products from './components/homepage/Products';
-import Productdetails from './components/homepage/Productdetails';
-import Categories from './components/homepage/Categories';
-import Categoriedeatails from './components/homepage/Categoriedeatails';
-import Offers from './components/homepage/Offers';
-import Empty from './components/homepage/Empty';
-import Admin from './admin/main';
 import Admins from './admin/admins/admin';
 import EditAdmin from './admin/admins/editadmin';
 import DeleteAdmin from './admin/admins/AdminDelete';
@@ -36,8 +24,8 @@ function App() {
           <Route path='/admin/edit/:id' element={<EditAdmin/>} />
           <Route path='/admin/delete/:id' element={<DeleteAdmin/>} />
           <Route path='/admin/category' element={<AdminCategory />} />
-
-
+          <Route path='/admin/category/delete/:id' element={<DeleteCategory />} />
+          <Route path='/admin/category/edit/:id' element={<CategoryEdit />} />
 
 
 
