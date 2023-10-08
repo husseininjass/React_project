@@ -1,4 +1,4 @@
-import './login.css';
+import './adminLogin.css';
 import Button from '../UI-elements/button';
 import { useState } from 'react';
 import axios from 'axios';

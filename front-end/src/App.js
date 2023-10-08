@@ -5,7 +5,7 @@ import Register from './components/auth/Register';
 import UserProfile from './components/Profile/UserProfile';
 import Landingpage from './components/auth/Landingpage';
 import AdminUsers from './admin/users/users';
-import AdminLogin from './admin/register/login';
+import AdminLogin from './admin/register/adminLogin';
 import Admins from './admin/admins/admin';
 import EditAdmin from './admin/admins/editadmin';
 import DeleteAdmin from './admin/admins/AdminDelete';
@@ -16,10 +16,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-        <Route path="/UserProfile" element={<UserProfile />} />
-        <Route path="/" element={<Landingpage />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="/UserProfile" element={<UserProfile />} />
+          <Route path="/lan" element={<Landingpage />} />
 
           <Route path='/admin' element={<Admins />} />
           <Route path='/admin/users' element={<AdminUsers />} />
