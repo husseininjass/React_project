@@ -13,11 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmt = $pdo->prepare("SELECT * FROM Users WHERE Email = ?");
     $stmt->execute([$email]);
-    $user = $stmt->fetch();
 
+    $user = $stmt->fetch();
     if ($user && password_verify($password, $user['Password'])) {
-        // Passwords match, user is authenticated
-        echo json_encode(['success' => true, 'message' => 'Login successful']);
+        echo json_encode(['success' => true, 'message' => 'Login successful', 'UserId'=>$user['UserId']]);
+
+
     } else {
         // Passwords do not match, login failed
         echo json_encode(['success' => false, 'message' => 'Login failed. Please check your credentials.']);

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './login.css';
 import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios'; // Import Axios
+import axios from 'axios';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -9,8 +9,7 @@ const Login = () => {
     password: '',
   });
 
-  const [error, setError] = useState(null); // State to handle login errors
-
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const handleInputChange = (event) => {
@@ -21,17 +20,20 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const url = 'http://localhost/React_project/back-end/login/login.php';
-
     try {
+      const url = 'http://localhost/React_project/back-end/login/login.php';
+
       const response = await axios.post(url, formData);
 
       if (response.data.success) {
-        // Login successful, redirect to the desired page (e.g., dashboard)
-        navigate('/register');
+        // Store user data in local storage
+        localStorage.setItem('login', 'true');
+        localStorage.setItem('id', response.data.UserId);
+
+        // Redirect to the homepage or your desired destination
+        navigate('/');
       } else {
-        // Login failed, set an error message
-        setError('Login failed. Please check your credentials.');
+        setError('Email or Password Invalid');
       }
     } catch (error) {
       console.error('Error:', error);
@@ -40,6 +42,9 @@ const Login = () => {
   };
 
   return (
+
+
+    
     <section className="login pt-100">
       <div className="container">
         <div className="billing-details">
@@ -55,6 +60,7 @@ const Login = () => {
                 placeholder="Email Address"
                 required
                 name="email"
+                value={formData.email}
                 onChange={handleInputChange}
               />
             </div>
@@ -66,6 +72,7 @@ const Login = () => {
                 placeholder="Enter your Password"
                 required
                 name="password"
+                value={formData.password}
                 onChange={handleInputChange}
               />
             </div>
