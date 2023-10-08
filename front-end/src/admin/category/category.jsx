@@ -2,7 +2,7 @@ import Admin from "../main";
 import Button from "../UI-elements/button";
 import { useState , useEffect } from "react";
 import axios from "axios";
-import { useNavigate , Link } from "react-router-dom";
+import { useNavigate , Link, Navigate } from "react-router-dom";
 import DeleteButton from "../UI-elements/delete"
 import EditButton from "../UI-elements/edit";
 import './category.css';
@@ -40,6 +40,7 @@ function AdminCategory (){
         axios.post('http://localhost/React_project/back-end/category-admin/create.php', formData)
           .then((response) => {
             console.log('File uploaded:', response.data);
+            window.location.reload();
           });
       } else {
         console.log('No file selected.');
