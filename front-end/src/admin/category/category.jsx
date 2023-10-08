@@ -6,53 +6,59 @@ import { useNavigate , Link } from "react-router-dom";
 import DeleteButton from "../UI-elements/delete"
 import EditButton from "../UI-elements/edit";
 import './category.css';
+import 'bootstrap/dist/css/bootstrap.css';
 function AdminCategory (){
-    const navigate = useNavigate();
-  const [data, setData] = useState([]);
-  const [input , updInput] = useState({});
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [inputValue, setInputValue] = useState('');
+    const [data, setData] = useState([]);
     const Show = () =>{
         document.querySelector('#admins').classList.toggle('show')
     }
-  useEffect(() => {
-    axios.get("http://localhost/React_project/back-end/admin/get_admins.php")
-      .then((response) => {
-        setData(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
-
-  const inputHandler = (e) =>{
-    const name  = e.target.name;
-    const value = e.target.value;
-    updInput(values => ({...values , [name]: value}));
-  }
-  const addHandler = (e) => {
-    // e.preventDefault();
-    
-    
-    axios.post('http://localhost/React_project/back-end/admin/create.php', input)
-      .then((r) => {
-        console.log(r.data);
-        navigate('/admin');
-      })
-  };
+    const onFileChange = (event) => {
+      setSelectedFile(event.target.files[0]);
+    };
+  
+    const onInputChange = (event) => {
+      setInputValue(event.target.value);
+    };
+    useEffect(() => {
+        axios.get("http://localhost/React_project/back-end/category-admin/read.php")
+          .then((response) => {
+            setData(response.data);
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+      }, []);
+    const onFileUpload = (e) => {
+        e.preventDefault();
+      if (selectedFile) {
+        const formData = new FormData();
+        formData.append('image', selectedFile);
+        formData.append('text', inputValue);
+  
+        axios.post('http://localhost/React_project/back-end/category-admin/create.php', formData)
+          .then((response) => {
+            console.log('File uploaded:', response.data);
+          });
+      } else {
+        console.log('No file selected.');
+      }
+    };
     return(
         <>
             <Admin />
             <div className="content">
             <Button className="add_category" onClick={Show}>Add Category</Button>
-            <form className="admins category" id="admins" onSubmit={addHandler}>
-                <label>Fname</label>
-                <input type="text" name="Fname" onChange={inputHandler}/>
-                <label>Lname</label>
-                <input type="text" name="Lname" onChange={inputHandler}/>
-                <label>password</label>
-                <input type="password" name="password" onChange={inputHandler}/>
-                <label>email</label>
-                <input type="email" name="email" onChange={inputHandler}/>
-                <input type="submit" />
+            <form className="admins category" id="admins">
+                <label>Category Name</label>
+                <input         
+                    type='text'
+                    value={inputValue}
+                    onChange={onInputChange}/>
+                <label>Category image</label>
+                <input type="file" name="photo" onChange={onFileChange} />
+                <input type="submit" value='add' onClick={onFileUpload}/>
             </form>
             <div id="maindiv">
 
@@ -68,28 +74,26 @@ function AdminCategory (){
                                 <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>FName</th>
-                                        <th>Lname</th>
-                                        <th>email</th>
-                                        <th>password</th>
-                                        <th>action</th>
+                                        <th>Category name</th>
+                                        <th>Category Image</th>
+                                        <th>Action</th>
+                                       
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {data.map(item => (
-                                        <tr key={item.id}>
-                                            <td>{item.id}</td>
-                                            <td>{item.Fname}</td>
-                                            <td>{item.Lname}</td>
-                                            <td>{item.email}</td>
-                                            <td>{item.password}</td>
+                                {data.map(item => (
+                                        <tr key={item.CategoryID}>
+                                            <td>{item.CategoryID}</td>
+                                            <td>{item.CategoryName}</td>
+                                            <td><img src={`/images/${item.Image}`} alt="category_image"  style={{width:'200px', height:'200px'}} /></td>
+                                          
                                             <td>
                                             
-                                            <Link to={`/admin/edit/${item.id}`}>  <EditButton>Edit</EditButton>
+                                            <Link to={`/admin/category/edit/${item.CategoryID}`}>  <EditButton>Edit</EditButton>
                                                 </Link> 
                                                 
                                             
-                                            <Link to={`/admin/delete/${item.id}`}> <DeleteButton>Delete</DeleteButton></Link>
+                                            <Link to={`/admin/category/delete/${item.CategoryID}`}> <DeleteButton>Delete</DeleteButton></Link>
                                             
                                             </td>
                                         </tr>

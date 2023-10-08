@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AdminUsers from './admin/users/users';
 import Login from './components/auth/Login';
@@ -10,6 +10,8 @@ import DeleteAdmin from './admin/admins/AdminDelete';
 import EditUser from './admin/users/editUser';
 import DeleteUser from './admin/users/deleteUser';
 import AdminCategory from './admin/category/category';
+import DeleteCategory from './admin/category/categoryDelete';
+import CategoryEdit from './admin/category/categoryEdit';
 function App() {
   return (
     <BrowserRouter>
@@ -22,8 +24,8 @@ function App() {
           <Route path='/admin/edit/:id' element={<EditAdmin/>} />
           <Route path='/admin/delete/:id' element={<DeleteAdmin/>} />
           <Route path='/admin/category' element={<AdminCategory />} />
-
-
+          <Route path='/admin/category/delete/:id' element={<DeleteCategory />} />
+          <Route path='/admin/category/edit/:id' element={<CategoryEdit />} />
 
 
 
