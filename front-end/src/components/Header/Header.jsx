@@ -1,22 +1,24 @@
 import React from 'react';
 import './hom.css';
 import './animate.css';
-// import './bootstrap.min.css';
 import './font-awesome.min.css';
 import './glass-case.css';
 import './magnific-popup.css';
-// import './owl.carousel.css';
 import './responsive.css';
+import { FiLogOut } from 'react-icons/fi';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
 
-
 const Header = () => {
+  const handleLogout = () => {
+    localStorage.setItem('login', 'false');
+    window.location.href = './';
+  };
+  
+
+  const isLoggedIn = localStorage.getItem('login') === 'true';
 
   return (
-
-
-
     <div>
       <header className="header transition">
         <div className="container position-r">
@@ -44,23 +46,47 @@ const Header = () => {
                     <li>
                       <a href="index.html">ABOUT US</a>
                     </li>
-
-
                     <li>
                       <a href="contact.html">CONTACT US</a>
                     </li>
+                    {!isLoggedIn && (
+                      <>
+                        <li>
+                          <a href="login">LOGIN</a>
+                        </li>
+                        <li>
+                          <a href="register">REGISTER</a>
+                        </li>
+                      </>
+                    )}
                     <li>
-                      <a href="login">LOGIN</a>
+                      <a href="contact.html">
+                        [ ]{' '}
+                        <FontAwesomeIcon
+                          icon={faCartShopping}
+                          // className="fa-x"
+                          style={{ color: '#020203' ,fontSize: '25px' }}
+                        />
+                      </a>
                     </li>
-                    <li>
-                      <a href="register">REGISTER</a>
-                    </li>
-                    <li>
-                      <a href="contact.html"> <FontAwesomeIcon icon={faUser} className="fa-2x" style={{ color: '#020203' }} />  </a>
-                    </li>
-                    <li>
-                      <a href="contact.html">[  ] <FontAwesomeIcon icon={faCartShopping} className="fa-2x" style={{ color: '#020203' }} /></a>
-                    </li>
+                    {isLoggedIn && (
+                      <>
+                        <li key="loggedin">
+                          <a href="UserProfile">
+                            <FontAwesomeIcon
+                              icon={faUser}
+                              style={{ color: '#020203' ,fontSize: '25px' }}
+                            />
+                          </a>
+                        </li>
+                        <li>
+                          <FiLogOut
+                            style={{ fontSize: '30px' ,cursor:'pointer' }}
+                            onClick={handleLogout}
+                          />
+                        </li>
+                      </>
+                    )}
                   </ul>
                 </div>
               </div>
@@ -68,32 +94,8 @@ const Header = () => {
           </div>
         </div>
       </header>
-
-
-
-
-
-
-
-
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  )
+  );
 };
+
 export default Header;
