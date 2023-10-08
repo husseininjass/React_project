@@ -207,7 +207,7 @@ const Register = () => {
               <a
                 className="link"
                 title="Create New Account"
-                href="#"
+                href="login"
                 onClick={(e) => {
                   e.preventDefault(); // Prevent the default link behavior
                   navigate('/login'); // Redirect to the login page
