@@ -12,6 +12,7 @@
   font-weight: bold;
   font-size: 2rem;
   margin-left: 1rem;
+  margin-bottom: 2rem;
 }
 .image{
   background-image: url('logo1.png');
@@ -21,7 +22,12 @@
   height: 8rem;
   border-radius: 5px;
 }
-@media (min-width: 280px) and (max-width: 994px){
+.w3-button{
+  color: black;
+  font-weight: bold;
+}
+
+@media (min-width: 150px) and (max-width: 994px){
   .w3-teal{
     background-color: black !important;
   }

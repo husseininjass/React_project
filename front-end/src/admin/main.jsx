@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './content.css';
 import { Link } from 'react-router-dom';
 
-
 function Admin() {
   function open() {
     document.getElementById('mySidebar').style.display = 'block';
@@ -22,13 +21,13 @@ function Admin() {
             </button>
             <h1 className='Admin'>Admin</h1>
             <Link to="/admin" className="w3-bar-item w3-button">
-            Link 1
+            Admins
             </Link>
             <Link to="/admin/users" className="w3-bar-item w3-button">
-            Link 2
+            Users
             </Link>
-            <Link to="/try" className="w3-bar-item w3-button">
-            Link 3
+            <Link to="/admin/category" className="w3-bar-item w3-button">
+            Category
             </Link>
         </div>
 
