@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Header from '../Header/Header';
+import Footer from '../Header/Footer';
 import { Link } from "react-router-dom";
 import "./profile.css";
 
@@ -10,7 +12,7 @@ function Logout() {
 
   return (
     <Link
-      to="/LandingPage"
+      to="/"
       onClick={handleLogout}
       className="link"
       onMouseEnter={(e) => {
@@ -31,7 +33,7 @@ function Logout() {
 
 export default function Profile() {
   const [user, setUser] = useState({});
-  const [order, setOrder] = useState({});
+  const [orders, setOrders] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [updatedUser, setUpdatedUser] = useState({});
 
@@ -63,7 +65,7 @@ export default function Profile() {
       .then((response) => {
         console.log("Response data:", response.data);
         if (Array.isArray(response.data) && response.data.length > 0) {
-          setOrder(response.data[0]);
+          setOrders(response.data); 
         } else {
           console.error("No order data found.");
         }
@@ -100,7 +102,11 @@ export default function Profile() {
     setUpdatedUser({ ...updatedUser, [name]: value });
   };
 
+
   return (
+    <div>
+    <Header />
+
     <div>
       <section className="my-5">
         <div className="container">
@@ -151,7 +157,14 @@ export default function Profile() {
                     <div className="card-body">
                       <div className="top-status">
                         <h4>Orders</h4><br />
-                        <p><span style={{ color: 'black', fontSize: '18px' }}> Price: </span>{order.TotalPrice}</p>
+                        <ul>
+  {orders.map(order => (
+    <li key={order.BillID}>
+      <p><span style={{ color: 'black', fontSize: '18px' }}>Price:</span> {order.TotalPrice}</p>
+    </li>
+  ))}
+</ul>
+
                       </div>
                     </div>
                   </div>
@@ -280,5 +293,9 @@ export default function Profile() {
         </div>
       </section>
     </div>
+    
+    <Footer />
+
+</div>
   );
 }

@@ -171,7 +171,7 @@ _______________________________________________________*/
 .sticky .menu ul li.dropdown a:after{bottom: -29px;}
 .menu ul li:first-child{padding-left: 0;}
 .menu ul li:last-child{padding-right: 0;}
-.menu ul li a{color: #222222; text-transform: uppercase; position: relative;}
+.menu ul li a{color: #222222; text-transform: uppercase; position: relative; text-decoration: none;}
 .menu ul li a:before{content: ""; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: #222222; transition: all 400ms ease;}
 .search-right{width: 500px; float: left; position: relative; top: 6px;}
 .search-menu{width: calc(100% - 125px); float: left; position: relative; padding-right: 20px;}
@@ -287,7 +287,7 @@ _______________________________________________________*/
 .product-img{border: 10px solid #f5f5f5; overflow: hidden; position: relative;}
 .featured-product:hover .product-img{box-shadow: 0px 0px 10px 1px rgb(0, 0, 0, .2);}
 .product-img a{display: block;}
-.product-name{display: block; font-size: 16px; color: #2d3031; line-height: 20px;}
+.product-name{display: block; font-size: 16px; color: #2d3031; line-height: 20px; text-decoration: none;}
 .product-pricce{font-size: 18px; color: #979797; font-weight: 700;}
 .product-details-btn {position: absolute; bottom: -70px; left: 0; width: 100%; background: #2d3031; padding: 10px 10px; visibility: hidden; opacity: 0;}
 .product-details-btn a {color: #fff;}

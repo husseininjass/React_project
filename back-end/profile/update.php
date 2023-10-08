@@ -15,7 +15,7 @@ if(isset($_POST)){
     $Email = ($user['Email']);
     $phone = ($user['phone']);
     $ShippingAddress = ($user['ShippingAddress']);
-    $Password = password_hash($user->Password, PASSWORD_DEFAULT);
+    $Password = ($user['Password']);
     $UserId = ($user['UserId']);
 
     // Check if all necessary data is provided before attempting to update

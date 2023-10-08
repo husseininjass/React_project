@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import UserProfile from './components/Profile/UserProfile';
-import Landingpage from './components/auth/Landingpage';
 import AdminUsers from './admin/users/users';
 import AdminLogin from './admin/register/adminLogin';
 import Header from './components/Header/Header';
@@ -39,7 +38,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/UserProfile" element={<UserProfile />} />
-        <Route path="/lan" element={<Landingpage />} />
         <Route path="/Header" element={<Header />} />
         <Route path="/Footer" element={<Footer />} />
         <Route path="/Products" element={<Products />} />
