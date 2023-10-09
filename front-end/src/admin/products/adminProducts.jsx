@@ -15,6 +15,7 @@ function AdminCategory (){
     const [inputqun, qun] = useState('');
     const [inputsales, sales] = useState('');
     const [data, setData] = useState([]);
+    const [products, setProducts] = useState([]);
     const Show = () =>{
         document.querySelector('#admins').classList.toggle('show')
     }
@@ -50,8 +51,17 @@ function AdminCategory (){
             console.error("Error fetching data:", error);
           });
       }, []);
+    useEffect(() => {
+        axios.get("http://localhost/React_project/back-end/products-admin/read.php")
+          .then((response) => {
+            setProducts(response.data);
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+      }, []);
     const onFileUpload = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
       if (selectedFile) {
         
         const formData = new FormData();
@@ -98,10 +108,12 @@ function AdminCategory (){
                     onChange={onpriChange}/>
                 <label>Category Name</label>
                 <select
+                        className="admin_select"
                         name="category"
                         onChange={oncataChange}
                         value={inputValue.category}
                         >
+                            <option selected>Category Name</option>
                         {data.map((e)=>(
                             <option value={e.CategoryID}>{e.CategoryName}</option>
                         ))}
@@ -137,9 +149,9 @@ function AdminCategory (){
                                     <tr>
                                         <th>Product Id</th>
                                         <th>Product name</th>
+                                        <th>CatigoryID</th>
                                         <th>Description</th>
                                         <th>Price</th>
-                                        <th>Catigory Name</th>
                                         <th>Stock Quantity</th>
                                         <th>sales</th>
                                         <th>Image</th>
@@ -147,19 +159,24 @@ function AdminCategory (){
                                     </tr>
                                 </thead>
                                 <tbody>
-                                {data.map(item => (
-                                        <tr key={item.CategoryID}>
+                                {products.map(item => (
+                                        <tr key={item.ProductID }>
+                                            <td>{item.ProductID}</td>
+                                            <td>{item.ProductName}</td>
                                             <td>{item.CategoryID}</td>
-                                            <td>{item.CategoryName}</td>
-                                            <td><img src={`/images/${item.Image}`} alt="category_image"  style={{width:'200px', height:'200px'}} /></td>
+                                            <td>{item.Description}</td>
+                                            <td>{item.Price}</td>
+                                            <td>{item.StockQuantity}</td>
+                                            <td>{item.Sales}</td>
+                                            <td><img src={`/images/${item.Image}`} alt="category_image"  style={{width:'200px', height:'150px'}} /></td>
+                                            
                                           
                                             <td>
                                             
-                                            <Link to={`/admin/category/edit/${item.CategoryID}`}>  <EditButton>Edit</EditButton>
-                                                </Link> 
+                                            <Link to={`/admin/products/edit/${item.ProductID}`}><EditButton>Edit</EditButton></Link> 
                                                 
                                             
-                                            <Link to={`/admin/category/delete/${item.CategoryID}`}> <DeleteButton>Delete</DeleteButton></Link>
+                                            <Link to={`/admin/products/delete/${item.ProductID}`}><DeleteButton>Delete</DeleteButton></Link>
                                             
                                             </td>
                                         </tr>

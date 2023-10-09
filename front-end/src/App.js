@@ -13,6 +13,8 @@ import AdminCategory from './admin/category/category';
 import DeleteCategory from './admin/category/categoryDelete';
 import CategoryEdit from './admin/category/categoryEdit';
 import Products from './admin/products/adminProducts';
+import ProductDelet from './admin/products/productDelete';
+import EditProduct from './admin/products/editProduct';
 function App() {
   return (
     <BrowserRouter>
@@ -28,6 +30,8 @@ function App() {
           <Route path='/admin/category/delete/:id' element={<DeleteCategory />} />
           <Route path='/admin/category/edit/:id' element={<CategoryEdit />} />
           <Route path='/admin/products' element={<Products />} />
+          <Route path='/admin/products/delete/:id' element={<ProductDelet />} />
+          <Route path='/admin/products/edit/:id' element={<EditProduct />} />
 
 
           <Route path="login" element={<Login />} />
