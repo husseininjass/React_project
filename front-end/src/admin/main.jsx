@@ -32,6 +32,9 @@ function Admin() {
             <Link to="/admin/products" className="w3-bar-item w3-button">
             Products
             </Link>
+            <Link to="/admin/orders" className="w3-bar-item w3-button">
+            Orders
+            </Link>
         </div>
 
          <div className="w3-main" style={{ marginLeft: '200px' }}>
