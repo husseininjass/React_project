@@ -1,4 +1,12 @@
-
+.admin_container{
+    overflow-y: hidden;
+    border: 1px solid black;
+    border-radius: 3px;
+    width: fit-content;
+    transform: translateY(15%);
+    margin: 0 auto;
+    box-shadow: 10px 10px 8px #888888 , -10px -10px 8px #888888;
+}
 .image_container{
     display: flex;
     justify-content: center;

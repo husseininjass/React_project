@@ -4,3 +4,6 @@
 .admins{
     transform: translateX(30%);
 }
+.admin_select{
+    display: block;
+}
