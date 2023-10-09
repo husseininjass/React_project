@@ -12,6 +12,7 @@ import DeleteUser from './admin/users/deleteUser';
 import AdminCategory from './admin/category/category';
 import DeleteCategory from './admin/category/categoryDelete';
 import CategoryEdit from './admin/category/categoryEdit';
+import Products from './admin/products/adminProducts';
 function App() {
   return (
     <BrowserRouter>
@@ -26,7 +27,7 @@ function App() {
           <Route path='/admin/category' element={<AdminCategory />} />
           <Route path='/admin/category/delete/:id' element={<DeleteCategory />} />
           <Route path='/admin/category/edit/:id' element={<CategoryEdit />} />
-
+          <Route path='/admin/products' element={<Products />} />
 
 
           <Route path="login" element={<Login />} />
