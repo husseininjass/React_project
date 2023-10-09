@@ -1,27 +1,27 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Login from './components/auth/Login';
-import Register from './components/auth/Register';
-import UserProfile from './components/Profile/UserProfile';
-import AdminUsers from './admin/users/users';
-import AdminLogin from './admin/register/adminLogin';
-import Header from './components/Header/Header';
-import Footer from './components/Header/Footer';
-import HomePage from './components/homepage/HomePage';
-import Products from './components/homepage/Products';
-import Productdetails from './components/homepage/Productdetails';
-import Categories from './components/homepage/Categories';
-import Categoriedeatails from './components/homepage/Categoriedeatails';
-import Offers from './components/homepage/Offers';
-import Empty from './components/homepage/Empty';
-import Admin from './admin/main';
-import Admins from './admin/admins/admin';
-import EditAdmin from './admin/admins/editadmin';
-import DeleteAdmin from './admin/admins/AdminDelete';
-import EditUser from './admin/users/editUser';
-import DeleteUser from './admin/users/deleteUser';
-import AdminCategory from './admin/category/category';
-
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
+import UserProfile from "./components/Profile/UserProfile";
+import AdminUsers from "./admin/users/users";
+import AdminLogin from "./admin/register/adminLogin";
+import Header from "./components/Header/Header";
+import Footer from "./components/Header/Footer";
+import HomePage from "./components/homepage/HomePage";
+import Products from "./components/homepage/Products";
+import Productdetails from "./components/homepage/Productdetails";
+import Categories from "./components/homepage/Categories";
+import Categoriedeatails from "./components/homepage/Categoriedeatails";
+import Offers from "./components/homepage/Offers";
+import Empty from "./components/homepage/Empty";
+import Admin from "./admin/main";
+import Admins from "./admin/admins/admin";
+import EditAdmin from "./admin/admins/editadmin";
+import DeleteAdmin from "./admin/admins/AdminDelete";
+import EditUser from "./admin/users/editUser";
+import DeleteUser from "./admin/users/deleteUser";
+import AdminCategory from "./admin/category/category";
+import Cart from "./components/cart/Cart";
 function App() {
   return (
     <BrowserRouter>
@@ -41,10 +41,15 @@ function App() {
         <Route path="/Header" element={<Header />} />
         <Route path="/Footer" element={<Footer />} />
         <Route path="/Products" element={<Products />} />
-        <Route path="/Productdetails/:categoryId" element={<Productdetails />} />
+        <Route
+          path="/Productdetails/:categoryId"
+          element={<Productdetails />}
+        />
         <Route path="/Categories/:categoryId" element={<Categories />} />
         <Route path="/Categoriedeatails" element={<Categoriedeatails />} />
         <Route path="/Offers" element={<Offers />} />
+        <Route path="/cart" element={<Cart />} />
+
         <Route path="/Empty" element={<Empty />} />
       </Routes>
     </BrowserRouter>
