@@ -71,7 +71,7 @@ function EditProduct(){
         <>
             <Admin />
             <div className="content">
-            <form className=" category" id="admins" onSubmit={onFileUpload}>
+            <form className=" edit_product" id="admins" onSubmit={onFileUpload}>
                 <label>Product Name</label>
                 <input         
                     type='text'
@@ -116,7 +116,7 @@ function EditProduct(){
                     onChange={onsalesChange}/>
                 <label>Product image</label>
                 <input type="file" name="photo" onChange={onFileChange} />
-                <input type="submit" value='add' />
+                <input type="submit" value='update' />
                 </form>
             </div>
             

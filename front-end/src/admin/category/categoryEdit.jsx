@@ -44,7 +44,7 @@ function CategoryEdit(){
                         onChange={onInputChange}/>
                     <label>Category image</label>
                     <input type="file" name="photo" onChange={onFileChange} />
-                    <input type="submit" value='add' onClick={onFileUpload}/>
+                    <input type="submit" value='update' onClick={onFileUpload}/>
                  </form>
                 </div>
 

@@ -155,6 +155,7 @@ function AdminCategory (){
                                         <th>Stock Quantity</th>
                                         <th>sales</th>
                                         <th>Image</th>
+                                        <th style={{width: '9rem'}}>action</th>
                                        
                                     </tr>
                                 </thead>

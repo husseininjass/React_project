@@ -6,13 +6,17 @@
 }
 input{
     display: block;
+    margin-bottom: 0.5em;
 }
 .edit{
     transform: translateX(30%);
 }
 .add{
-    transform: translateX(280%);
+    transform: translateX(300%);
 }
-.table{
-    width: 90% !important;
+.admins{
+    margin-left: 4.2rem;
+}
+.submit_admin{
+    margin-left: 4rem;
 }

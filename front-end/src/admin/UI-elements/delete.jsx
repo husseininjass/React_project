@@ -12,7 +12,7 @@ display: inline-block;
   border-radius: 10px;
   box-shadow: 5px 5px 0px #000;
   transition: all 0.3s ease;
-  &:hove{
+  &:hover{
     background-color: #fff;
     color: #ff5252;
     border: 2px solid #ff5252;

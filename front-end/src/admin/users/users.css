@@ -1,3 +1,6 @@
 .add_users{
-    transform: translateX(300%);
+    transform: translateX(330%);
+}
+.edit_product{
+    transform: translateX(34%);
 }

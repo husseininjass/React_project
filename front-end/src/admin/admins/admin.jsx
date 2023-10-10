@@ -57,7 +57,7 @@ function Admins() {
                 <input type="password" name="password" onChange={inputHandler}/>
                 <label>email</label>
                 <input type="email" name="email" onChange={inputHandler}/>
-                <input type="submit" />
+                <input type="submit" className="submit_admin"/>
             </form>
             <div id="maindiv">
 

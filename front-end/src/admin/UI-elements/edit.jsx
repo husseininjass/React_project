@@ -12,11 +12,11 @@ display: inline-block;
   border-radius: 10px;
   box-shadow: 5px 5px 0px #000;
   transition: all 0.3s ease;
-  &:hove{
-    background-color: #fff;
-    color: #ff5252;
-    border: 2px solid #ff5252;
-    box-shadow: 5px 5px 0px #ff5252;
+  &:hover{
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    box-shadow: 5px 5px 0px black;
   }
   &:active{
     background-color: #fcf414;
