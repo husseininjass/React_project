@@ -41,6 +41,7 @@ import AdminProducts from './admin/products/adminProducts';
 import ProductDelet from './admin/products/productDelete';
 import EditProduct from './admin/products/editProduct';
 import OrdersAdmin from './admin/orders/AdminOrders';
+import DashBoard from "./admin/Dashboard/dashboard";
 function App() {
   return (
     <BrowserRouter>
@@ -85,6 +86,7 @@ function App() {
           <Route path='/admin/products/edit/:id' element={<EditProduct />} />
           <Route path='/admin/orders' element={<OrdersAdmin />} />
           <Route path='/admin/orders/delete/:id' element={<DeleteOrder />} />
+          <Route path='/adminDashboard' element={<DashBoard />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
       </Routes>

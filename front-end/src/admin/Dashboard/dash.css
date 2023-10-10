@@ -1,0 +1,30 @@
+.content_dash{
+    transform: translateX(5%) translateY(10%);
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+}
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin: 10px;
+    width: 400px;
+    font-size: 4rem;
+    box-shadow: 5px 5px 8px grey;
+  }
+  
+  .card h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  

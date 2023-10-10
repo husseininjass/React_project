@@ -20,6 +20,9 @@ function Admin() {
             Close &times;
             </button>
             <h1 className='Admin'>Admin</h1>
+            <Link to="/adminDashboard" className="w3-bar-item w3-button">
+            DashBoard
+            </Link>
             <Link to="/admin" className="w3-bar-item w3-button">
             Admins
             </Link>
