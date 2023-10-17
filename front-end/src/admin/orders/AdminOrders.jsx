@@ -32,7 +32,7 @@ function OrdersAdmin() {
                   </div>
                 </div>
               </div>
-              <table className="table table-bordered">
+              <table className="">
                 <thead>
                   <tr>
                     <th>Order ID</th>
